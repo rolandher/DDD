@@ -1,0 +1,17 @@
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.csproj.AssemblyReference.cache
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.AssemblyInfoInputs.cache
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.AssemblyInfo.cs
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.csproj.CoreCompileInputs.cache
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.CasoDeUso.deps.json
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.CasoDeUso.runtimeconfig.json
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.CasoDeUso.dll
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.CasoDeUso.pdb
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.Domain.dll
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\bin\Debug\net6.0\Cliente.Domain.pdb
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.csproj.CopyComplete
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.dll
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\refint\Cliente.CasoDeUso.dll
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.pdb
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\Cliente.CasoDeUso.genruntimeconfig.cache
+C:\Users\Rolando\Desktop\proyectoDDD\DDD\Cliente.CasoDeUso\obj\Debug\net6.0\ref\Cliente.CasoDeUso.dll
