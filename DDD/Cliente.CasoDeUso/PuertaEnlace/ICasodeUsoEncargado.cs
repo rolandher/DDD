@@ -12,11 +12,10 @@ namespace Cliente.CasoDeUso.PuertaEnlace
     public interface ICasodeUsoEncargado
     {
         Task<Encargado> CrearEncargado(CrearEncargadoComand crearEncargadoComand);
-        Task<Mesero> AnadirMesero(AnadirMeseroComand anadirMeseroComand);
-
-        Task<Mesero> EliminarMesero(EliminarMeseroComand eliminarMeseroComand);
-        Task<Bartender> AnadirBartender(AnadirBartenderComand anadirBartenderComand);
+        Task<Encargado> AnadirMesero(AnadirMeseroComand anadirMeseroComand);
+       
+        Task<Encargado> AnadirBartender(AnadirBartenderComand anadirBartenderComand);
         
-        Task<Bartender> EliminarBartender(EliminarBartenderComand eliminarBartenderComand);
+     
     }
 }

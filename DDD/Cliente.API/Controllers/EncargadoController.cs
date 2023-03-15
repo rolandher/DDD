@@ -26,10 +26,16 @@ namespace Cliente.API.Controllers
         }
 
         [HttpPost("anadirMesero")]
-        public async Task<Mesero> AnadirMesero(AnadirMeseroComand comand)
+        public async Task<Encargado> AnadirMesero(AnadirMeseroComand comand)
         {
             var meseroAnadido = await _casodeUsoEncargado.AnadirMesero(comand);
             return meseroAnadido;
+        }
+        [HttpPost("anadirBartender")]
+        public async Task<Encargado> AnadirBartender(AnadirBartenderComand comand)
+        {
+            var bartenderAnadido = await _casodeUsoEncargado.AnadirBartender(comand);
+            return bartenderAnadido;
         }
     }
 

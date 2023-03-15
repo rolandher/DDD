@@ -17,176 +17,162 @@ using System.Threading.Tasks;
 
 namespace Cliente.CasoDeUso.CasosDeUsos
 {
-    //public class EncargadoCasoDeUso : ICasodeUsoEncargado
-    //{
-    //    private readonly IEventoRepositorio<AlmacenamientoEvento> _eventoRepositorio;
+    public class EncargadoCasoDeUso : ICasodeUsoEncargado
+    {
+        private readonly IEventoRepositorio<AlmacenamientoEvento> _eventoRepositorio;
 
-    //    public EncargadoCasoDeUso(IEventoRepositorio<AlmacenamientoEvento> eventoRepositorio)
-    //    {
-    //        _eventoRepositorio = eventoRepositorio;
-    //    }
+        public EncargadoCasoDeUso(IEventoRepositorio<AlmacenamientoEvento> eventoRepositorio)
+        {
+            _eventoRepositorio = eventoRepositorio;
+        }
 
-    //    public async Task<Encargado> CrearEncargado(CrearEncargadoComand crearEncargadoComand)
-    //    {
-    //        var encargado = new Encargado(EncargadoId.Of(Guid.NewGuid()));
-    //        encargado.SetEncargadoId(encargado.EncargadoId);
-    //        var datosPersonales = DatosPersonalesEncargado.Crear(
-    //            crearEncargadoComand.Nombre,
-    //            crearEncargadoComand.Sexo,
-    //            crearEncargadoComand.Edad
-    //            );
+        public async Task<Encargado> CrearEncargado(CrearEncargadoComand crearEncargadoComand)
+        {
+            var encargado = new Encargado(EncargadoId.Of(Guid.NewGuid()));
+            encargado.SetEncargadoId(encargado.EncargadoId);
 
-    //        encargado.SetDatoPersonalAnadido(datosPersonales);
-    //        List<EventoDominio> eventoDominios = encargado.GetUnCommitChanges();
-    //        await SaveEvents(eventoDominios);
+            var datosPersonales = DatosPersonalesEncargado.Crear(
+                crearEncargadoComand.Nombre,
+                crearEncargadoComand.Sexo,
+                crearEncargadoComand.Edad
+                );
 
-    //        var encargadoCambiado = new EncargadoCambiado();
-    //        encargado = encargadoCambiado.CrearAgregado(eventoDominios, encargado.EncargadoId);
-    //        return encargado;
-    //    }
+            encargado.SetDatoPersonalAnadido(datosPersonales);
+            List<EventoDominio> eventoDominios = encargado.GetUnCommitChanges();
+            await SaveEvents(eventoDominios);
 
-
-    //    public async Task<Mesero> AnadirMesero(AnadirMeseroComand anadirMeseroComand)
-    //    {
-    //        var meseroAnadido = new EncargadoCambiado();
-    //        var listaEventosDominio = await GetEventosAgregadoId(anadirMeseroComand.MeseroId);
-    //        var encargadoId = EncargadoId.Of(Guid.Parse(anadirMeseroComand.MeseroId));
-    //        var meseroSolicitado = meseroAnadido.CrearAgregado(listaEventosDominio, encargadoId);
+            var encargadoCambiado = new EncargadoCambiado();
+            encargado = encargadoCambiado.CrearAgregado(eventoDominios, encargado.EncargadoId);
+            return encargado;
+        }
 
 
-    //        var mesero = new Mesero(MeseroId.Of(Guid.NewGuid()));
-
-    //        var datosPersonales = DatosPersonalesMesero.Crear(
-    //            anadirMeseroComand.MeseroId                         
-    //            ); 
-    //        var contrato = ContratoMesero.Crear(
-    //            anadirMeseroComand.TipoDeContrato
-    //            );
-
-    //        meseroSolicitado.SetMeseroAnadido(mesero.MeseroId);
-    //        List<EventoDominio> eventoDominios = meseroSolicitado.GetUnCommitChanges();
-    //        await SaveEvents(eventoDominios);
-
-    //        meseroAnadido = new EncargadoCambiado();
-    //        listaEventosDominio = await GetEventosAgregadoId(anadirMeseroComand.MeseroId);
-    //        meseroSolicitado = meseroAnadido.CrearAgregado(listaEventosDominio, encargadoId);
-    //        return mesero;
-    //    }
-
-        //public async Task<Mesero> EliminarMesero(EliminarMeseroComand eliminarMeseroComand)
-        //{
-        //    var meseroEliminado = new EncargadoCambiado();
-        //    var listaEventosDominio = await GetEventosAgregadoId(eliminarMeseroComand.MeseroId);
-        //    var encargadoId = EncargadoId.Of(Guid.Parse(eliminarMeseroComand.MeseroId));
-        //    var meseroSolicitado = meseroEliminado.CrearAgregado(listaEventosDominio, encargadoId);
+        public async Task<Encargado> AnadirMesero(AnadirMeseroComand anadirMeseroComand)
+        {
+            var encargadoCambiado = new EncargadoCambiado();
+            var listaEventosDominio = await GetEventosAgregadoId(anadirMeseroComand.EncargadoId);
+            var encargadoId = EncargadoId.Of(Guid.Parse(anadirMeseroComand.EncargadoId));
+            var meseroRealizado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
 
 
-        //    meseroSolicitado.SetMeseroEliminado(eliminarMeseroComand.MeseroId);
-        //    List<EventoDominio> eventoDominios = meseroSolicitado.GetUnCommitChanges();
-        //    await SaveEvents(eventoDominios);
-        //    var mesero = meseroEliminado.CrearAgregado(eventoDominios, encargadoId);
-        //    return mesero;
-        //}
 
-        
+            var mesero = new Mesero(MeseroId.Of(Guid.NewGuid()));
+            var datosPersonales = DatosPersonalesMesero.Crear(
+                               anadirMeseroComand.Nombre
+                    );
+            var contrato = ContratoMesero.Crear(
+                               anadirMeseroComand.TipoDeContrato
+                    );
 
-        //public async Task<Encargado> AnadirBartender(AnadirBartenderComand anadirBartenderComand)
-        //{
-        //    var encargadoCambiado = new EncargadoCambiado();
-        //    var listaEventosDominio = await GetEventosAgregadoId(anadirBartenderComand.);
-        //    var encargadoId = EncargadoId.Of(Guid.Parse(anadirBartenderComand.EncargadoId));
-        //    var bartenderSolicitado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
-        //    bartenderSolicitado.SetBartenderAnadido(anadirBartenderComand.BartenderId);
-        //    List<EventoDominio> eventoDominios = bartenderSolicitado.GetUnCommitChanges();
-        //    await SaveEvents(eventoDominios);
-        //    var encargado = encargadoCambiado.CrearAgregado(eventoDominios, encargadoId);
-        //    return encargado;
-        //}
+            meseroRealizado.SetDatosPersonalesMesero(datosPersonales);
+            meseroRealizado.SetContratoMesero(contrato);
+            
+            List<EventoDominio> eventoDominios = meseroRealizado.GetUnCommitChanges();
+            await SaveEvents(eventoDominios);
 
-        //public async Task<Encargado> EliminarBartender(EliminarBartenderComand eliminarBartenderComand)
-        //{
-        //    var encargadoCambiado = new EncargadoCambiado();
-        //    var listaEventosDominio = await GetEventosAgregadoId(eliminarBartenderComand.EncargadoId);
-        //    var encargadoId = EncargadoId.Of(Guid.Parse(eliminarBartenderComand.EncargadoId));
-        //    var bartenderSolicitado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
-        //    bartenderSolicitado.SetBartenderEliminado(eliminarBartenderComand.BartenderId);
-        //    List<EventoDominio> eventoDominios = bartenderSolicitado.GetUnCommitChanges();
-        //    await SaveEvents(eventoDominios);
-        //    var encargado = encargadoCambiado.CrearAgregado(eventoDominios, encargadoId);
-        //    return encargado;
-        //}
+            encargadoCambiado = new EncargadoCambiado();
+            listaEventosDominio = await GetEventosAgregadoId(anadirMeseroComand.EncargadoId);
+            meseroRealizado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
+
+            return meseroRealizado;
+        }
+
+        public async Task<Encargado> AnadirBartender(AnadirBartenderComand anadirBartenderComand)
+        {
+            var encargadoCambiado = new EncargadoCambiado();
+            var listaEventosDominio = await GetEventosAgregadoId(anadirBartenderComand.EncargadoId);
+            var encargadoId = EncargadoId.Of(Guid.Parse(anadirBartenderComand.EncargadoId));
+            var bartenderRealizado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
 
 
-    //    private async Task SaveEvents(List<EventoDominio> list)
-    //    {
-    //        var array = list.ToArray();
-    //        for (var index = 0; index < array.Length; index++)
-    //        {
-    //            var almacenamiento = new AlmacenamientoEvento();
-    //            almacenamiento.AgregadoId = array[index].GetAggregateId();
-    //            almacenamiento.Nombre = array[index].GetAggregate();
-    //            switch (array[index])
-    //            {
-    //                case EncargadoCreado encargadoCreado:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(encargadoCreado);
-    //                    break;
-    //                case DatosPersonalesAnadidos datosPersonalesAnadidos:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(datosPersonalesAnadidos);
-    //                    break;
-    //                case MeseroAnadido meseroAnadido:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(meseroAnadido);
-    //                    break;
-    //                case MeseroEliminado meseroEliminado:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(meseroEliminado);
-    //                    break;
-    //                case BartenderAnadido bartenderAnadido:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(bartenderAnadido);
-    //                    break;
-    //                case BartenderEliminado bartenderEliminado:
-    //                    almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(bartenderEliminado);
-    //                    break;
 
-    //            }
-    //            await _eventoRepositorio.AddAsync(almacenamiento);
+            var bartender = new Bartender(BartenderId.Of(Guid.NewGuid()));
+            var datosPersonales = DatosPersonalesBartender.Crear(
+                               anadirBartenderComand.Nombre
+                    );
+            var contrato = ContratoBartender.Crear(
+                               anadirBartenderComand.TipoDeContrato
+                    );
 
-    //        }
+            bartenderRealizado.SetDatosPersonalesBartender(datosPersonales);
+            bartenderRealizado.SetContratoBartender(contrato);
 
-    //        await _eventoRepositorio.SaveChangesAsync();
+            List<EventoDominio> eventoDominios = bartenderRealizado.GetUnCommitChanges();
+            await SaveEvents(eventoDominios);
 
-    //    }
+            encargadoCambiado = new EncargadoCambiado();
+            listaEventosDominio = await GetEventosAgregadoId(anadirBartenderComand.EncargadoId);
+            bartenderRealizado = encargadoCambiado.CrearAgregado(listaEventosDominio, encargadoId);
 
-    //    private async Task<List<EventoDominio>> GetEventosAgregadoId(string aggregateId)
-    //    {
-    //        var listadoEventos = await _eventoRepositorio.GetEventosAgregadoId(aggregateId);
+            return bartenderRealizado;        
 
-    //        if (listadoEventos == null)
-    //            throw new ArgumentException("No existe el Id del agregado en la base de datos");
+    }
 
-    //        return listadoEventos.Select(ev =>
-    //        {
-    //            string nombre = $"Cliente.Domain.Encargado.Eventos.{ev.Nombre}, Cliente.Domain";
-    //            Type tipo = Type.GetType(nombre);
-    //            EventoDominio eventoParseado = (EventoDominio)JsonConvert.DeserializeObject(ev.CuerpoEvento, tipo);
-    //            return eventoParseado;
+        private async Task SaveEvents(List<EventoDominio> list)
+        {
+            var array = list.ToArray();
+            for (var index = 0; index < array.Length; index++)
+            {
+                var almacenamiento = new AlmacenamientoEvento();
+                almacenamiento.AgregadoId = array[index].GetAggregateId();
+                almacenamiento.Nombre = array[index].GetAggregate();
+                switch (array[index])
+                {
+                    case EncargadoCreado encargadoCreado:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(encargadoCreado);
+                        break;
+                    case DatosPersonalesEncargadoAnadidos datosPersonalesAnadidos:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(datosPersonalesAnadidos);
+                        break;
+                    //meseroEve
+                    case MeseroAnadido meseroAnadido:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(meseroAnadido);
+                        break;
+                    case DatosPersonalesMeseroAnadidos datosPersonalesMeseroAnadidos:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(datosPersonalesMeseroAnadidos);
+                        break;
+                    case ContratoAnadidoMesero contratoAnadido:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(contratoAnadido);
+                        break;
+                    //bartenderEve
+                    case BartenderAnadido bartenderAnadido:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(bartenderAnadido);
+                        break;
+                    case DatosPersonalesBartenderAnadidos datosPersonalesBartenderAnadidos:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(datosPersonalesBartenderAnadidos);
+                        break;
+                    case ContratoAnadidoBartender contratoAnadidoBartender:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(contratoAnadidoBartender);
+                        break;
 
-    //        }).ToList();
+                }
+                await _eventoRepositorio.AddAsync(almacenamiento);
+
+            }
+
+            await _eventoRepositorio.SaveChangesAsync();
+
+        }
+
+        private async Task<List<EventoDominio>> GetEventosAgregadoId(string aggregateId)
+        {
+            var listadoEventos = await _eventoRepositorio.GetEventosAgregadoId(aggregateId);
+
+            if (listadoEventos == null)
+                throw new ArgumentException("No existe el Id del agregado en la base de datos");
+
+            return listadoEventos.Select(ev =>
+            {
+                string nombre = $"Cliente.Domain.Encargado.Eventos.{ev.Nombre}, Cliente.Domain";
+                Type tipo = Type.GetType(nombre);
+                EventoDominio eventoParseado = (EventoDominio)JsonConvert.DeserializeObject(ev.CuerpoEvento, tipo);
+                return eventoParseado;
+
+            }).ToList();
 
 
-    //    }       
+        }
 
-    //    Task<Mesero> ICasodeUsoEncargado.EliminarMesero(EliminarMeseroComand eliminarMeseroComand)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    Task<Bartender> ICasodeUsoEncargado.AnadirBartender(AnadirBartenderComand anadirBartenderComand)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    Task<Bartender> ICasodeUsoEncargado.EliminarBartender(EliminarBartenderComand eliminarBartenderComand)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+     
+    }
 }

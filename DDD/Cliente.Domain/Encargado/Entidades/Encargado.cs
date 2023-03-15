@@ -19,9 +19,9 @@ namespace Cliente.Domain.Encargado.Entidades
         public virtual BartenderId Bartender { get; private set; }
         public virtual MeseroId Mesero { get; private set; }
 
-        public Encargado(EncargadoId id) : base(id)
+        public Encargado(EncargadoId encargadoId) : base(encargadoId)
         {
-            this.EncargadoId = EncargadoId;
+            this.EncargadoId = encargadoId;
         }
 
         public void SetEncargadoId(EncargadoId encargadoId)
@@ -31,29 +31,38 @@ namespace Cliente.Domain.Encargado.Entidades
 
         public void SetDatoPersonalAnadido(DatosPersonalesEncargado datosPersonalesEncargado)
         {
-            AgregarCambios(new DatosPersonalesAnadidos(datosPersonalesEncargado));
+            AgregarCambios(new DatosPersonalesEncargadoAnadidos(datosPersonalesEncargado));
+        }
+        public void SetMeseroAnadido(MeseroId meseroId)
+        {
+            AgregarCambios(new MeseroAnadido(meseroId));
+        }
+
+
+        public void SetDatosPersonalesMesero(DatosPersonalesMesero datosPersonalesMesero)
+        {
+            AgregarCambios(new DatosPersonalesMeseroAnadidos(datosPersonalesMesero));
+        }
+
+        public void SetContratoMesero(ContratoMesero contratoMesero)
+        {
+            AgregarCambios(new ContratoAnadidoMesero(contratoMesero));
         }
 
         public void SetBartenderAnadido(BartenderId bartenderId)
         {
             AgregarCambios(new BartenderAnadido(bartenderId));
         }
-
-        public void SetMeseroAnadido(MeseroId meseroId)
+        public void SetDatosPersonalesBartender(DatosPersonalesBartender datosPersonalesBartender)
         {
-            AgregarCambios(new MeseroAnadido(meseroId));
+            AgregarCambios(new DatosPersonalesBartenderAnadidos(datosPersonalesBartender));
         }
 
-        public void SetBartenderEliminado(BartenderId bartenderId)
+        public void SetContratoBartender(ContratoBartender contratoBartender)
         {
-            AgregarCambios(new BartenderEliminado(bartenderId));
+            AgregarCambios(new ContratoAnadidoBartender(contratoBartender));
         }
-
-        public void SetMeseroEliminado(MeseroId meseroId)
-        {
-            AgregarCambios(new MeseroEliminado(meseroId));
-        }
-
+             
        
 
         public void SetDatosPersonalesEncargado(DatosPersonalesEncargado datosPersonalesEncargado)

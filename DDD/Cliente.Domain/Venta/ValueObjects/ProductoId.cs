@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cliente.Domain.ComandosDDD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,16 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Venta.ValueObjects
 {
-    public record ProductoId
+    public class ProductoId : Identidad
     {
-        public Guid Value { get; init; }
+        //constructor
+        public ProductoId(Guid id) : base(id) { }
 
-        public ProductoId(Guid value)
-        {
-            Value = value;
-        }
 
-        public static ProductoId Crear(Guid value)
+        //create method
+        public static ProductoId Of(Guid id)
         {
-            return new ProductoId(value);
-        }
-        public static implicit operator Guid(ProductoId productoId)
-        {
-            return productoId.Value;
+            return new ProductoId(id);
         }
     }
 }

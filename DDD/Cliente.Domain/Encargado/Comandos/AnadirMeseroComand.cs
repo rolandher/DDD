@@ -11,7 +11,7 @@ namespace Cliente.Domain.Encargado.Comandos
         
         public string EncargadoId { get; init; }
 
-        public string Name { get; init; }
+        public string Nombre { get; init; }
         public string TipoDeContrato { get; init; }
         
     }

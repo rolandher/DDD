@@ -21,6 +21,7 @@ builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(
                 ));
 builder.Services.AddScoped(typeof(IEventoRepositorio<>), typeof(AlmacenamientoRepositorio<>));
 builder.Services.AddScoped<ICasodeUsoCliente, ClienteCasoDeUso>();
+builder.Services.AddScoped<ICasodeUsoEncargado, EncargadoCasoDeUso>();
 
 
 var app = builder.Build();

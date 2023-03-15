@@ -8,14 +8,10 @@ namespace Cliente.Domain.Encargado.Comandos
 {
     public class AnadirBartenderComand
     {
+        public string EncargadoId { get; init; }
+
         public string Nombre { get; init; }
         public string TipoDeContrato { get; init; }
 
-
-        public AnadirBartenderComand(string nombre, string tipodecontrato)
-        {
-            Nombre = nombre;
-            TipoDeContrato = tipodecontrato;
-        }
     }
 }

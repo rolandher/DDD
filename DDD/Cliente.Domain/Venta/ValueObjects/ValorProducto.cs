@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Venta.ValueObjects
 {
-    public record ValorProducto
+    public class ValorProducto
     {
-        public string nombre { get; init; }
-        public decimal precio { get; init; }
+        public string Nombre { get; init; }
+        public int Precio { get; init; }
 
-        internal ValorProducto(string nombre, decimal precio)
+        public ValorProducto(string nombre, int precio)
         {
-            this.nombre = nombre;
-            this.precio = precio;
+            Nombre = nombre;
+            Precio = precio;
         }
 
-        public static ValorProducto Crear(string nombre, decimal precio)
+        public static ValorProducto Crear(string nombre, int precio)
         {
             Validar(nombre, precio);
             return new ValorProducto(nombre, precio);

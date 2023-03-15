@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cliente.Domain.ComandosDDD;
+using Cliente.Domain.Encargado.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +8,16 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Venta.ValueObjects
 {
-    public record VentaId
+    public class VentaId : Identidad
     {
-    public Guid Value { get; init; }
+        //constructor
+        public VentaId(Guid id) : base(id) { }
 
-    public VentaId(Guid value)
-        {
-           Value = value;
-        }
 
-    public static VentaId Crear(Guid value)
+        //create method
+        public static VentaId Of(Guid id)
         {
-           return new VentaId(value);
-        }
-    public static implicit operator Guid(VentaId ventaId)
-        {
-           return ventaId.Value;
+            return new VentaId(id);
         }
     }
 }

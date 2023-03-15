@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cliente.Domain.ComandosDDD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +7,18 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Venta.ValueObjects
 {
-    public record TipoDePagoId
+    public class TipoDePagoId : Identidad
     {
+        //constructor
+        public TipoDePagoId(Guid id) : base(id) { }
 
-        public Guid Value { get; init; }
 
-        public TipoDePagoId(Guid value)
+        //create method
+        public static TipoDePagoId Of(Guid id)
         {
-            Value = value;
+            return new TipoDePagoId(id);
         }
-
-        public static TipoDePagoId Crear(Guid value)
-        {
-            return new TipoDePagoId(value);
-        }              
-        public static implicit operator Guid (TipoDePagoId tipoDePagoId)
-        {
-            return tipoDePagoId.Value;
-        }
+    
     }   
- }
+}
 
