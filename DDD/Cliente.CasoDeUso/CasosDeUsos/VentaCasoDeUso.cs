@@ -1,4 +1,6 @@
 ﻿using Cliente.CasoDeUso.PuertaEnlace;
+using Cliente.Domain.Cliente.Entidades;
+using Cliente.Domain.Cliente.ValueObjects;
 using Cliente.Domain.ComandosDDD;
 using Cliente.Domain.Encargado.Comandos;
 using Cliente.Domain.Encargado.Entidades;
@@ -97,6 +99,55 @@ namespace Cliente.CasoDeUso.CasosDeUsos
             tipoRealizado = ventaCambiada.CrearAgregado(listaEventosDominio, ventaId);
 
             return tipoRealizado;
+        }
+
+            public async Task<Venta> AnadirCliente(AnadirClienteComand anadirClienteComand)
+            {
+                var ventaCambiada = new VentaCambiada();
+                var listaEventosDominioVenta = await GetEventosAgregadoId(anadirClienteComand.VentaId);
+                var ventaId = VentaId.Of(Guid.Parse(anadirClienteComand.VentaId));
+                var ventaRealizada = ventaCambiada.CrearAgregado(listaEventosDominioVenta, ventaId);
+                
+
+                var cienteCambiado = new ClienteCambiado();
+                var listaEventosDominioCliente = await GetEventosClienteAgregadoId(anadirClienteComand.CLienteId);
+                var clienteId = ClienteId.Of(Guid.Parse(anadirClienteComand.CLienteId));
+                var clienteRealizado = cienteCambiado.CrearAgregado(listaEventosDominioCliente, clienteId);
+
+                ventaRealizada.SetCliente(clienteRealizado.ClienteId);
+
+                List<EventoDominio> eventoDominios = ventaRealizada.GetUnCommitChanges();
+                await SaveEvents(eventoDominios);
+
+                ventaCambiada = new VentaCambiada();
+                listaEventosDominioVenta = await GetEventosAgregadoId(anadirClienteComand.VentaId);
+                ventaRealizada = ventaCambiada.CrearAgregado(listaEventosDominioVenta, ventaId);
+                return ventaRealizada;
+
+            }
+
+        public async Task<Venta> AnadirEncargado(AnadirEncargadoComand anadirEncargadoComand)
+        {
+            var ventaCambiada = new VentaCambiada();
+            var listaEventosDominioVenta = await GetEventosAgregadoId(anadirEncargadoComand.VentaId);
+            var ventaId = VentaId.Of(Guid.Parse(anadirEncargadoComand.VentaId));
+            var ventaRealizada = ventaCambiada.CrearAgregado(listaEventosDominioVenta, ventaId);
+
+
+            var encargadoCambiado = new EncargadoCambiado();
+            var listaEventosDominioCliente = await GetEventosEncargadogregadoId(anadirEncargadoComand.EncargadoId);
+            var encargadoId = EncargadoId.Of(Guid.Parse(anadirEncargadoComand.EncargadoId));
+            var encargadoRealizado = encargadoCambiado.CrearAgregado(listaEventosDominioCliente, encargadoId);
+
+            ventaRealizada.SetEncargado(encargadoId);
+
+            List<EventoDominio> eventoDominios = ventaRealizada.GetUnCommitChanges();
+            await SaveEvents(eventoDominios);
+
+            ventaCambiada = new VentaCambiada();
+            listaEventosDominioVenta = await GetEventosAgregadoId(anadirEncargadoComand.VentaId);
+            ventaRealizada = ventaCambiada.CrearAgregado(listaEventosDominioVenta, ventaId);
+            return ventaRealizada;
 
         }
 
@@ -125,7 +176,17 @@ namespace Cliente.CasoDeUso.CasosDeUsos
                     case DescripcionAnadida descripcionAnadida:
                         almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(descripcionAnadida);
                         break;
-                   
+
+                    //ClienteEve
+                    case ClienteAnadido clienteAnadido:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(clienteAnadido);
+                        break;
+                    //EncargaEve
+                    case EncargadoAnadido encargadoAnadido:
+                        almacenamiento.CuerpoEvento = JsonConvert.SerializeObject(encargadoAnadido);
+                        break;
+
+
 
                 }
                 await _eventoRepositorio.AddAsync(almacenamiento);
@@ -154,7 +215,43 @@ namespace Cliente.CasoDeUso.CasosDeUsos
 
 
         }
+        private async Task<List<EventoDominio>> GetEventosClienteAgregadoId(string aggregateId)
+        {
+            var listadoEventos = await _eventoRepositorio.GetEventosAgregadoId(aggregateId);
 
-       
+            if (listadoEventos == null)
+                throw new ArgumentException("No existe el Id del agregado en la base de datos");
+
+            return listadoEventos.Select(ev =>
+            {
+                string nombre = $"Cliente.Domain.Cliente.Eventos.{ev.Nombre}, Cliente.Domain";
+                Type tipo = Type.GetType(nombre);
+                EventoDominio eventoParseado = (EventoDominio)JsonConvert.DeserializeObject(ev.CuerpoEvento, tipo);
+                return eventoParseado;
+
+            }).ToList();
+
+
+        }
+        private async Task<List<EventoDominio>> GetEventosEncargadogregadoId(string aggregateId)
+        {
+            var listadoEventos = await _eventoRepositorio.GetEventosAgregadoId(aggregateId);
+
+            if (listadoEventos == null)
+                throw new ArgumentException("No existe el Id del agregado en la base de datos");
+
+            return listadoEventos.Select(ev =>
+            {
+                string nombre = $"Cliente.Domain.Encargado.Eventos.{ev.Nombre}, Cliente.Domain";
+                Type tipo = Type.GetType(nombre);
+                EventoDominio eventoParseado = (EventoDominio)JsonConvert.DeserializeObject(ev.CuerpoEvento, tipo);
+                return eventoParseado;
+
+            }).ToList();
+
+
+        }
+
+
     }
 }

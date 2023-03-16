@@ -16,5 +16,7 @@ namespace Cliente.CasoDeUso.PuertaEnlace
         Task<Venta> AnadirProducto(AnadirProductoComand anadirProductoComand);
 
         Task<Venta> AnadirPago(AnadirDescripcionComand anadirDescripcionComand);
+        Task<Venta> AnadirCliente(AnadirClienteComand anadirClienteComand);
+        Task<Venta> AnadirEncargado(AnadirEncargadoComand anadirEncargadoComand);
     }
 }

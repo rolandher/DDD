@@ -9,6 +9,12 @@ namespace Cliente.Domain.Cliente.Comandos
 {
     public class AnadirPedidoComand
     {
+        public AnadirPedidoComand(string cLienteId, int cantidad)
+        {
+            CLienteId = cLienteId;
+            Cantidad = cantidad;
+        }
+
         public string CLienteId { get; init; }
         public int Cantidad { get; init; }       
 

@@ -36,5 +36,19 @@ namespace Cliente.API.Controllers
             var pagoAnadido = await _casoDeUsoVenta.AnadirPago(comand);
             return pagoAnadido;
         }
+
+        [HttpPost("anadirCliente")]
+        public async Task<Venta> AnadirCliente(AnadirClienteComand comand)
+        {
+            var clienteAnadido = await _casoDeUsoVenta.AnadirCliente(comand);
+            return clienteAnadido;
+        }
+
+        [HttpPost("anadirEncargado")]
+        public async Task<Venta> AnadirEncargado(AnadirEncargadoComand comand)
+        {
+            var encargadoAnadido = await _casoDeUsoVenta.AnadirEncargado(comand);
+            return encargadoAnadido;
+        }
     }
 }

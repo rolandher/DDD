@@ -11,6 +11,18 @@ namespace Cliente.Domain.Generico
 {
     public class AlmacenamientoEvento
     {
+        public AlmacenamientoEvento(int id, string nombre, string agregadoId, string cuerpoEvento)
+        {
+            Id = id;
+            Nombre = nombre;
+            AgregadoId = agregadoId;
+            CuerpoEvento = cuerpoEvento;
+        }
+        public AlmacenamientoEvento()
+        {
+
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -23,6 +35,9 @@ namespace Cliente.Domain.Generico
 
        
     }
+
+
+
 
 
 }

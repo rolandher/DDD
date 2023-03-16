@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Venta.Comandos
 {
-    public class CrearVentaComand
+    public class AnadirClienteComand
     {
-        public CrearVentaComand(string nombre)
-        {
-            Nombre = nombre;
-        }
+        public string VentaId { get; init; }
 
-        public string Nombre { get; init; }
-
+        public string CLienteId { get; init; }
     }
-
 }

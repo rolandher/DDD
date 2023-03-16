@@ -15,11 +15,13 @@ namespace Cliente.Domain.Venta.Entidades
 {
     public class Venta : AgregarEvento<VentaId>
     {
-        public VentaId VentaId { get; init; }
-
-        public IdAgregadosClienteEncargado IdAgregadosClienteEncargado {get; private set; }
+        public VentaId VentaId { get; init; }       
 
         public DetallesVenta DetallesVenta { get; private set; }
+
+        public virtual ClienteId ClienteId { get; private set; }
+
+        public virtual EncargadoId EncargadoId { get; private set; }
 
        
         public virtual DescripcionDelProducto DescripcionDelProducto { get; private set; }
@@ -64,6 +66,16 @@ namespace Cliente.Domain.Venta.Entidades
             AgregarCambios(new EncargadoAnadido(encargadoId));
         }
 
+
+
+
+
+
+
+
+
+        //setter
+
         public void SetDetallesVenta(DetallesVenta detallesVenta)
         {
             this.DetallesVenta = detallesVenta;
@@ -76,6 +88,16 @@ namespace Cliente.Domain.Venta.Entidades
         public void SetDescripcionAnadida(DescripcionDelProducto descripcionDelProducto)
         {
             this.DescripcionDelProducto = descripcionDelProducto;
+        }
+
+        public void SetClienteAnadido(ClienteId clienteId)
+        {
+            this.ClienteId = clienteId;
+        }
+
+        public void SetEncargadoAnadido(EncargadoId encargadoId)
+        {
+            this.EncargadoId = encargadoId;
         }
        
 

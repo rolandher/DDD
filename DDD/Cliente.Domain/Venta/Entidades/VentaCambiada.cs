@@ -31,12 +31,12 @@ namespace Cliente.Domain.Venta.Entidades
                     case DescripcionAnadida descripcionAnadida:
                         venta.SetDescripcionAnadida(descripcionAnadida.DescripcionDelProducto);
                         break;
-                    //case ClienteAnadido clienteAnadido:
-                    //    venta.SetClienteId(clienteAnadido.ClienteId);
-                    //    break;
-                    //case EncargadoAnadido encargadoAnadido:
-                    //    venta.SetEncargadoId(encargadoAnadido.EncargadoId);
-                    //    break;
+                    case ClienteAnadido clienteAnadido:
+                       venta.SetClienteAnadido(clienteAnadido.ClienteId);
+                        break;
+                    case EncargadoAnadido encargadoAnadido:
+                       venta.SetEncargadoAnadido(encargadoAnadido.EncargadoId);
+                       break;
                 }
 
             });
