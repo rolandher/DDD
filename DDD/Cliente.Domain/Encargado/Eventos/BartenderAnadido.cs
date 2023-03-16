@@ -1,4 +1,5 @@
 ﻿using Cliente.Domain.ComandosDDD;
+using Cliente.Domain.Encargado.Entidades;
 using Cliente.Domain.Encargado.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace Cliente.Domain.Encargado.Eventos
 {
     public class BartenderAnadido : EventoDominio
     {
-        public BartenderId BartenderId { get; set; }
+        public Bartender Bartender { get; set; }
 
-        public BartenderAnadido(BartenderId bartenderId) : base("Bartender.anadido")
+        public BartenderAnadido(Bartender bartender) : base("Bartender.anadido")
         {
-            BartenderId = bartenderId;
+            Bartender = bartender;
         }
     }
 }

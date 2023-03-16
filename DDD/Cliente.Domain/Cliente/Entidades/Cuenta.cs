@@ -12,6 +12,8 @@ namespace Cliente.Domain.Cliente.Entidades
     {
         //variables
         public CuentaId CuentaId { get; private set; }
+
+        public MetodosDePago MetodosDePago { get; private set; }
        
 
         public Cuenta(CuentaId id) : base(id)
@@ -21,7 +23,12 @@ namespace Cliente.Domain.Cliente.Entidades
 
         public void SetCuentaId(CuentaId cuentaId)
         {
-            this.CuentaId = cuentaId;
+            CuentaId = cuentaId;
+        }
+
+        public void SetMetodosDePago(MetodosDePago metodosDePago)
+        {
+            MetodosDePago = metodosDePago;
         }
 
     }

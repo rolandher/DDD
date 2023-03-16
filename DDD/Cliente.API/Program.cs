@@ -22,6 +22,7 @@ builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(
 builder.Services.AddScoped(typeof(IEventoRepositorio<>), typeof(AlmacenamientoRepositorio<>));
 builder.Services.AddScoped<ICasodeUsoCliente, ClienteCasoDeUso>();
 builder.Services.AddScoped<ICasodeUsoEncargado, EncargadoCasoDeUso>();
+builder.Services.AddScoped<ICasodeUsoVenta, VentaCasoDeUso>();
 
 
 var app = builder.Build();

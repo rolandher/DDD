@@ -1,4 +1,5 @@
-﻿using Cliente.Domain.Cliente.ValueObjects;
+﻿using Cliente.Domain.Cliente.Entidades;
+using Cliente.Domain.Cliente.ValueObjects;
 using Cliente.Domain.ComandosDDD;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace Cliente.Domain.Cliente.Eventos
 {
     public class CuentaAnadido : EventoDominio
     {
-        public CuentaId CuentaId { get; set; }
+        public Cuenta Cuenta { get; set; }
 
-        public CuentaAnadido(CuentaId cuenta) : base("Pago.anadido")
+        public CuentaAnadido(Cuenta cuenta) : base("Pago.anadido")
         {
-            CuentaId = cuenta;
+            Cuenta = cuenta;
         }
 
     }

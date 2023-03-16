@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Encargado.Entidades
 {
-    public class Bartender : AgregarEvento<BartenderId>
+    public class Bartender : Entidad<BartenderId>
     {
         //variables
         public BartenderId BartenderId { get; private set; }

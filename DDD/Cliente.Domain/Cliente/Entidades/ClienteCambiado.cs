@@ -20,20 +20,16 @@ namespace Cliente.Domain.Cliente.Entidades
                 switch (evento)
                 {
                     case DatoPersonalAnadido datoPersonalAnadido:
-                        cliente.SetDatoPersonalAnadido(datoPersonalAnadido.DatosPersonales);
+                        cliente.SetDatosPersonalesAgregados(datoPersonalAnadido.DatosPersonales);
                         break;
 
                     case PedidoAnadido anadirPedido:
-                        cliente.SetAnadirPedido(anadirPedido.PedidoId);
+                        cliente.SetAnadirPedido(anadirPedido.Pedido);
                         break;
 
                     case CuentaAnadido anadirPago:
-                        cliente.SetAnadirPago(anadirPago.CuentaId);
-                        break;
-
-                    case PedidoEliminado eliminarPedido:
-                        cliente.SetEliminarPedido(eliminarPedido.PedidoId);
-                        break;
+                        cliente.SetAnadirPago(anadirPago.Cuenta);
+                        break;                    
 
                 }
 

@@ -62,7 +62,7 @@ namespace Cliente.CasoDeUso.CasosDeUsos
                                anadirPedidoComand.Cantidad
                 );
 
-            clienteRealizado.SetPedidoAnadido(pedido.PedidoId);
+            clienteRealizado.SetPedidoAnadido(pedido);
             List<EventoDominio> eventoDominios = clienteRealizado.GetUnCommitChanges();
             await SaveEvents(eventoDominios);
 
@@ -87,7 +87,7 @@ namespace Cliente.CasoDeUso.CasosDeUsos
                 anadirCuentaComand.TarjetaCredito                               
                 );
 
-            clienteRealizado.SetCuentaAnadido(cuenta.CuentaId);
+            clienteRealizado.SetCuentaAnadido(cuenta);
             List<EventoDominio> eventoDominios = clienteRealizado.GetUnCommitChanges();
             await SaveEvents(eventoDominios);
 

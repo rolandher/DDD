@@ -56,7 +56,9 @@ namespace Cliente.CasoDeUso.CasosDeUsos
 
 
 
-            var mesero = new Mesero(MeseroId.Of(Guid.NewGuid()));
+            var mesero = new Mesero(MeseroId.Of(Guid.NewGuid()));          
+
+             
             var datosPersonales = DatosPersonalesMesero.Crear(
                                anadirMeseroComand.Nombre
                     );
@@ -64,6 +66,7 @@ namespace Cliente.CasoDeUso.CasosDeUsos
                                anadirMeseroComand.TipoDeContrato
                     );
 
+            meseroRealizado.SetMeseroAnadido(mesero);
             meseroRealizado.SetDatosPersonalesMesero(datosPersonales);
             meseroRealizado.SetContratoMesero(contrato);
             
@@ -94,6 +97,7 @@ namespace Cliente.CasoDeUso.CasosDeUsos
                                anadirBartenderComand.TipoDeContrato
                     );
 
+            bartenderRealizado.SetBartenderAnadido(bartender);
             bartenderRealizado.SetDatosPersonalesBartender(datosPersonales);
             bartenderRealizado.SetContratoBartender(contrato);
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Cliente.Domain.Encargado.Entidades
 {
-    public class Mesero : AgregarEvento<MeseroId>
+    public class Mesero : Entidad<MeseroId>
     {
         //variables
         public MeseroId MeseroId { get; private set; }
@@ -21,7 +21,7 @@ namespace Cliente.Domain.Encargado.Entidades
 
         public Mesero(MeseroId id) : base(id)
         {
-
+           
         }
         
         public void SetDatosPersonalesMesero(DatosPersonalesMesero datosPersonalesMesero)

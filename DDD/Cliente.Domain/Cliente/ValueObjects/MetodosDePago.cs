@@ -12,7 +12,12 @@ namespace Cliente.Domain.Cliente.ValueObjects
         {
            this.TarjetaCredito = tarjetaCredito;
         }
-       
+
+        public void SetTarjetaCredito(int tarjetacredito)
+        {
+            TarjetaCredito = tarjetacredito;
+        }
+
         public static MetodosDePago Crear(int tarjetaCredito)
         {
             Validar(tarjetaCredito);
@@ -27,12 +32,6 @@ namespace Cliente.Domain.Cliente.ValueObjects
 
         }
 
-        //crear setter
-
-        public void SetTarjetaCredito(int tarjetaCredito)
-        {
-            TarjetaCredito = tarjetaCredito;
-        }
     }
 
 }

@@ -14,8 +14,7 @@ namespace Cliente.CasoDeUso.PuertaEnlace
         Task<Encargado> CrearEncargado(CrearEncargadoComand crearEncargadoComand);
         Task<Encargado> AnadirMesero(AnadirMeseroComand anadirMeseroComand);
        
-        Task<Encargado> AnadirBartender(AnadirBartenderComand anadirBartenderComand);
-        
+        Task<Encargado> AnadirBartender(AnadirBartenderComand anadirBartenderComand);        
      
     }
 }

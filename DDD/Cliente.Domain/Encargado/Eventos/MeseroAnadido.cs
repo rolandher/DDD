@@ -1,4 +1,5 @@
 ﻿using Cliente.Domain.ComandosDDD;
+using Cliente.Domain.Encargado.Entidades;
 using Cliente.Domain.Encargado.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace Cliente.Domain.Encargado.Eventos
 {
     public class MeseroAnadido : EventoDominio
     {
-        public MeseroId MeseroId { get; set; }
+        public Mesero Mesero { get; set; }
 
-        public MeseroAnadido(MeseroId meseroId) : base("Mesero.anadido")
+        public MeseroAnadido(Mesero mesero) : base("Mesero.anadido")
         {
-            MeseroId = meseroId;
+            Mesero = mesero;
         }
     }
 }

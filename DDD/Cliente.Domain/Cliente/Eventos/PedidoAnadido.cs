@@ -1,4 +1,5 @@
-﻿using Cliente.Domain.Cliente.ValueObjects;
+﻿using Cliente.Domain.Cliente.Entidades;
+using Cliente.Domain.Cliente.ValueObjects;
 using Cliente.Domain.ComandosDDD;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace Cliente.Domain.Cliente.Eventos
 {
     public class PedidoAnadido : EventoDominio
     {
-        public PedidoId PedidoId { get; set; }
+        public Pedido Pedido { get; set; }
 
-        public PedidoAnadido(PedidoId pedidoId) : base("Pedido.anadido")
+        public PedidoAnadido(Pedido pedido) : base("Pedido.anadido")
         {
-            PedidoId = pedidoId;
+            Pedido = pedido;
         }
 
     }

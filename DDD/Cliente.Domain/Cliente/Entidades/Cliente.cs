@@ -9,11 +9,14 @@ namespace Cliente.Domain.Cliente.Entidades
     {
         public ClienteId ClienteId { get; init; }
        
-        public DatosPersonales DatosPersonales { get; private set; } 
-        
-        public virtual PedidoId PedidoId { get; private set; }
+        public DatosPersonales DatosPersonales { get; private set; }         
+     
+        public virtual Cuenta Cuenta { get; private set; }
 
-        public virtual CuentaId CuentaId { get; private set; }
+        public virtual Pedido Pedido { get; private set; }
+
+
+
 
         //manejador de eventos
         public Cliente(ClienteId clienteId) : base (clienteId)
@@ -31,19 +34,16 @@ namespace Cliente.Domain.Cliente.Entidades
             AgregarCambios(new DatoPersonalAnadido(datosPersonales));
         }
 
-        public void SetPedidoAnadido(PedidoId pedido)
+        public void SetPedidoAnadido(Pedido pedido)
         {
             AgregarCambios(new PedidoAnadido(pedido));
         }
 
-        public void SetCuentaAnadido(CuentaId metodosDePago)
+        public void SetCuentaAnadido(Cuenta metodosDePago)
         {
             AgregarCambios(new CuentaAnadido(metodosDePago));
         }
-        public void SetEliminarPedidoId(PedidoId pedidoId)
-        {
-            AgregarCambios(new PedidoEliminado(pedidoId));
-        }
+      
 
         // Metodos de cambio del agregado como entidad
         public void SetDatosPersonalesAgregados(DatosPersonales datosPersonales)
@@ -51,20 +51,16 @@ namespace Cliente.Domain.Cliente.Entidades
             DatosPersonales= datosPersonales;
         }
 
-        public void SetAnadirPedido(PedidoId pedidoId)
+        public void SetAnadirPedido(Pedido pedido)
         {
-            PedidoId = pedidoId;
+            Pedido= pedido;
         }
 
-        public void SetAnadirPago(CuentaId cuentaId)
+        public void SetAnadirPago(Cuenta cuenta)
         {
-            CuentaId = cuentaId;
+            Cuenta = cuenta;
         }
-
-        public void SetEliminarPedido(PedidoId pedidoId)
-        {
-            PedidoId = pedidoId;
-        }
+       
 
 
 

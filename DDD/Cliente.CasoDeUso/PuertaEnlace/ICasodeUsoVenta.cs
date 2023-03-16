@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Cliente.Domain.Encargado.Comandos;
+using Cliente.Domain.Encargado.Entidades;
+using Cliente.Domain.Venta.Comandos;
+using Cliente.Domain.Venta.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace Cliente.CasoDeUso.PuertaEnlace
 {
-    internal class ICasodeUsoVenta
+    public interface ICasodeUsoVenta
     {
+        Task<Venta> CrearVenta(CrearVentaComand crearVentaComand);
+        Task<Venta> AnadirProducto(AnadirProductoComand anadirProductoComand);
+
+        Task<Venta> AnadirPago(AnadirDescripcionComand anadirDescripcionComand);
     }
 }

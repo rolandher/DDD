@@ -13,7 +13,9 @@ namespace Cliente.Domain.Cliente.Entidades
     {
         //variables
         public PedidoId PedidoId { get; private set; }
-       
+
+        public Cantidad Cantidad { get; private set; }
+
         public Pedido(PedidoId id) : base(id)
         {
             
@@ -22,6 +24,11 @@ namespace Cliente.Domain.Cliente.Entidades
         public void SetPedidoId(PedidoId pedidoId)
         {
             this.PedidoId = pedidoId;
+        }
+
+        public void SetCantidad(Cantidad cantidad)
+        {
+            this.Cantidad = cantidad;
         }
 
     }

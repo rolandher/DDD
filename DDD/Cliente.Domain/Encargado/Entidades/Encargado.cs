@@ -16,8 +16,8 @@ namespace Cliente.Domain.Encargado.Entidades
         
         public DatosPersonalesEncargado DatosPersonalesEncargado { get; private set; }
 
-        public virtual BartenderId Bartender { get; private set; }
-        public virtual MeseroId Mesero { get; private set; }
+        public virtual Bartender Bartender { get; private set; }
+        public virtual Mesero Mesero { get; private set; }
 
         public Encargado(EncargadoId encargadoId) : base(encargadoId)
         {
@@ -33,9 +33,9 @@ namespace Cliente.Domain.Encargado.Entidades
         {
             AgregarCambios(new DatosPersonalesEncargadoAnadidos(datosPersonalesEncargado));
         }
-        public void SetMeseroAnadido(MeseroId meseroId)
+        public void SetMeseroAnadido(Mesero mesero)
         {
-            AgregarCambios(new MeseroAnadido(meseroId));
+            AgregarCambios(new MeseroAnadido(mesero));
         }
 
 
@@ -49,9 +49,9 @@ namespace Cliente.Domain.Encargado.Entidades
             AgregarCambios(new ContratoAnadidoMesero(contratoMesero));
         }
 
-        public void SetBartenderAnadido(BartenderId bartenderId)
+        public void SetBartenderAnadido(Bartender bartender)
         {
-            AgregarCambios(new BartenderAnadido(bartenderId));
+            AgregarCambios(new BartenderAnadido(bartender));
         }
         public void SetDatosPersonalesBartender(DatosPersonalesBartender datosPersonalesBartender)
         {
@@ -70,18 +70,28 @@ namespace Cliente.Domain.Encargado.Entidades
             this.DatosPersonalesEncargado = datosPersonalesEncargado;
         }
 
-        public void SetBartender(BartenderId bartenderId)
+        public void SetBartender(Bartender bartender)
         {
-            this.Bartender = bartenderId;
+            this.Bartender = bartender;
         }
 
-        public void SetMesero(MeseroId meseroId)
+        public void SetMesero(Mesero mesero)
         {
-            this.Mesero = meseroId;
+            this.Mesero = mesero;
         }
 
+        //public void SetDatosPersonalesMeser(DatosPersonalesMesero datosPersonalesMesero)
+        //{
+        //    this.DatosPersonalesMesero = datosPersonalesMesero;
+        //}
 
-       
-       
+        //public void SetContratoMesero(ContratoMesero contratoMesero)
+        //{
+        //    this.ContratoMesero = contratoMesero;
+        //}
+
+
+
+
     }
 }

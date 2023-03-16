@@ -12,6 +12,11 @@ namespace Cliente.Domain.Cliente.ValueObjects
         {
             this.Value = value;
         }
+
+        public void SetValue(int value)
+        {
+            Value = value;
+        }
         public static Cantidad Crear(int value)
         {
             Validar(value);
@@ -25,11 +30,6 @@ namespace Cliente.Domain.Cliente.ValueObjects
                 throw new ArgumentNullException("El campo no puede estar vacio");
             }
 
-        }
-
-        public void SetValue(int value)
-        {
-            Value = value;
         }
     }     
       

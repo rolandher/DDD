@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Cliente.Domain.Generico
 {
     public class AlmacenamientoEvento
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -20,5 +20,9 @@ namespace Cliente.Domain.Generico
         public string AgregadoId { get; set; }
 
         public string CuerpoEvento { get; set; }
+
+       
     }
+
+
 }
