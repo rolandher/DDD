@@ -139,7 +139,7 @@ namespace Cliente.CasoDeUso.CasosDeUsos
             var encargadoId = EncargadoId.Of(Guid.Parse(anadirEncargadoComand.EncargadoId));
             var encargadoRealizado = encargadoCambiado.CrearAgregado(listaEventosDominioCliente, encargadoId);
 
-            ventaRealizada.SetEncargado(encargadoId);
+            ventaRealizada.SetEncargado(encargadoRealizado.EncargadoId);
 
             List<EventoDominio> eventoDominios = ventaRealizada.GetUnCommitChanges();
             await SaveEvents(eventoDominios);
