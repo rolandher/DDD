@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3wGvQZpbpStkzW1qM9+StrnrPZFj2QazpmAs0vAzgWo9iWnUk1rRECm1iUXcKTARyJLuHtNtT7PtRa8IHIV2GA==",
+  "dgSpecHash": "/2QcCXuuuVqdWZOmI32ycxv9gqpDKD21tE1uiwOIobDhlU5K7W72lWFJjYMUbnl9HOBT3PmHAW65qwkFiL9YCg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
+  "projectFilePath": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rolando\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
     "C:\\Users\\Rolando\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

@@ -8764,11 +8764,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
+      "projectUniqueName": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
       "projectName": "TestProjectDDD",
-      "projectPath": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
+      "projectPath": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\TestProjectDDD\\TestProjectDDD.csproj",
       "packagesPath": "C:\\Users\\Rolando\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\TestProjectDDD\\obj\\",
+      "outputPath": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\TestProjectDDD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rolando\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8785,8 +8785,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\Cliente.CasoDeUso\\Cliente.CasoDeUso.csproj": {
-              "projectPath": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\Cliente.CasoDeUso\\Cliente.CasoDeUso.csproj"
+            "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\Cliente.CasoDeUso\\Cliente.CasoDeUso.csproj": {
+              "projectPath": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\Cliente.CasoDeUso\\Cliente.CasoDeUso.csproj"
             }
           }
         }
@@ -8842,7 +8842,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

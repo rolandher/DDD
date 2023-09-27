@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SX/k2/jJ4WQY0vafgV5gdZoXiJgejoNOknCjnuUcJssnAA+IQMahE2HXRwgvyVMdO1BqUi4JiggFRFii0/pnPw==",
+  "dgSpecHash": "tnjfU5dQadlJpe3SgF7j0+w2bIPisVzuSPdolYJdHdN5RwoA6SfLB60HMDAcrya8raN8zeH67M83EOwlNYGUWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rolando\\Desktop\\proyectoDDD\\DDD\\Cliente.API\\Cliente.API.csproj",
+  "projectFilePath": "C:\\Users\\Rolando\\Desktop\\talleresSofka\\proyectoDDD\\DDD\\Cliente.API\\Cliente.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rolando\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
     "C:\\Users\\Rolando\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\6.1.0\\ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
